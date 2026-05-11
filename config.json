@@ -1,0 +1,136 @@
+{
+  "nombre": "Guarida",
+  "logo": "imagenes/logo.png",
+  "paleta": "Azul",
+  "heroImg": "imagenes/hero.jpg",
+  "tipografia": "Elegante",
+
+  "tipografias": {
+    "Elegante": {
+      "font-head": "'Cormorant Garamond', Georgia, serif",
+      "font-body": "'Inter', system-ui, sans-serif",
+      "googleFonts": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap"
+    },
+    "Moderno": {
+      "font-head": "'Playfair Display', Georgia, serif",
+      "font-body": "'DM Sans', system-ui, sans-serif",
+      "googleFonts": "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap"
+    },
+    "Minimalista": {
+      "font-head": "'Montserrat', system-ui, sans-serif",
+      "font-body": "'Lato', system-ui, sans-serif",
+      "googleFonts": "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@300;400;700&display=swap"
+    },
+    "Clasico": {
+      "font-head": "'EB Garamond', Georgia, serif",
+      "font-body": "'Source Sans 3', system-ui, sans-serif",
+      "googleFonts": "https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Source+Sans+3:wght@300;400;500&display=swap"
+    },
+    "Boutique": {
+      "font-head": "'Libre Baskerville', Georgia, serif",
+      "font-body": "'Nunito', system-ui, sans-serif",
+      "googleFonts": "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Nunito:wght@300;400;500&display=swap"
+    },
+    "Editorial": {
+      "font-head": "'Fraunces', Georgia, serif",
+      "font-body": "'Figtree', system-ui, sans-serif",
+      "googleFonts": "https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Figtree:wght@300;400;500&display=swap"
+    },
+    "Contemporaneo": {
+      "font-head": "'Josefin Sans', system-ui, sans-serif",
+      "font-body": "'Raleway', system-ui, sans-serif",
+      "googleFonts": "https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Raleway:wght@300;400;500&display=swap"
+    },
+    "Romantico": {
+      "font-head": "'Gilda Display', Georgia, serif",
+      "font-body": "'Jost', system-ui, sans-serif",
+      "googleFonts": "https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:wght@300;400;500&display=swap"
+    }
+  },
+
+
+  "paletas": {
+    "Dorado": {
+      "bg": "#FAFAF8", "bg-dark": "#111111", "bg-card": "#FFFFFF",
+      "text": "#111111", "text-muted": "#6B7280",
+      "accent": "#C4956A", "accent-dark": "#A07850", "border": "#E8E4DF"
+    },
+    "Rosa": {
+      "bg": "#FDF8F8", "bg-dark": "#1A1014", "bg-card": "#FFFFFF",
+      "text": "#1A1014", "text-muted": "#8B7280",
+      "accent": "#C4768A", "accent-dark": "#A05A70", "border": "#F0E4E8"
+    },
+    "Salvia": {
+      "bg": "#F7F9F5", "bg-dark": "#101A12", "bg-card": "#FFFFFF",
+      "text": "#101A12", "text-muted": "#6B7A6B",
+      "accent": "#7A9E7E", "accent-dark": "#5E8262", "border": "#DDE8DD"
+    },
+    "Azul": {
+      "bg": "#F5F7FA", "bg-dark": "#0E1420", "bg-card": "#FFFFFF",
+      "text": "#0E1420", "text-muted": "#5A6B80",
+      "accent": "#4A7FA5", "accent-dark": "#345F85", "border": "#D8E4F0"
+    },
+    "Lavanda": {
+      "bg": "#F8F6FB", "bg-dark": "#130F1A", "bg-card": "#FFFFFF",
+      "text": "#130F1A", "text-muted": "#7A6B8A",
+      "accent": "#8E6BAD", "accent-dark": "#6E4F8D", "border": "#E4D8F4"
+    },
+    "Rojo": {
+      "bg": "#FAF6F5", "bg-dark": "#1A0E0E", "bg-card": "#FFFFFF",
+      "text": "#1A0E0E", "text-muted": "#8A6060",
+      "accent": "#B84040", "accent-dark": "#902828", "border": "#F0D8D8"
+    },
+    "Menta": {
+      "bg": "#F4FAFA", "bg-dark": "#0A1818", "bg-card": "#FFFFFF",
+      "text": "#0A1818", "text-muted": "#4A7070",
+      "accent": "#3A9E9E", "accent-dark": "#257E7E", "border": "#CCE8E8"
+    },
+    "Terracota": {
+      "bg": "#FAF6F3", "bg-dark": "#1A0F0A", "bg-card": "#FFFFFF",
+      "text": "#1A0F0A", "text-muted": "#8A6850",
+      "accent": "#C26840", "accent-dark": "#A04E28", "border": "#F0DDD0"
+    }
+  },
+
+  "slogan": "Casa de libros y talleres culturales",
+  "descripcion": "Te ofrecemos talleres anuales, ciclos mensuales y actividades únicas.",
+  "appUrl": "https://guarida.onrender.com/",
+  "cursosUrl": "https://guarida.onrender.com/Curso/Disponibles",
+
+  "contacto": {
+    "telefono": "091332301",
+    "whatsapp": "091332301",
+    "email": " ",
+    "instagram": "https://www.instagram.com/guarida_uy/",
+    "direccion": "Héctor Miranda 2410, Uruguay",
+    "mapsUrl": "https://maps.google.com/?q=Hector Miranda+2410+Uruguay"
+  },
+
+  "horarios": [
+    { "dias": "Lunes a Viernes", "horario": "13:00 – 20:00" },
+    { "dias": "Sábados",         "horario": "16:00 – 20:00" }
+  ],
+
+  "servicios": [
+    {
+      "icono": "imagenes/1.png",
+      "nombre": "Talleres anuales",
+      "descripcion": "Talleres de escritura, ilustración, poesía y narrativa para todas las edades."
+    },
+    {
+      "icono": "imagenes/2.png",
+      "nombre": "Actividades únicas",
+      "descripcion": "Encuentros con autores, lecturas públicas y eventos culturales exclusivos."
+    },
+    {
+      "icono": "imagenes/3.png",
+      "nombre": "Venta de libros",
+      "descripcion": "Amplia selección de libros de autores locales e internacionales, con un enfoque en literatura contemporánea y clásica."
+    },
+    {
+      "icono": "imagenes/4.png",
+      "nombre": "Noche de las Librerías",
+      "descripcion": "Participamos en la Noche de las Librerías, ofreciendo descuentos especiales, actividades y eventos para celebrar la literatura y la cultura local."
+    }
+  ]
+}

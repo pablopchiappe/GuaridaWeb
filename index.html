@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Cargando...</title>
+  <meta name="description" id="page-desc" content="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>history.scrollRestoration='manual';if(location.hash)history.replaceState(null,'',location.pathname)</script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <div class="nav__logo">
+        <img id="nav-logo" src="" alt="Logo" />
+        <span id="nav-nombre"></span>
+      </div>
+      <nav class="nav__links">
+        <a href="#servicios">Lo que te ofrecemos!</a>
+        <a href="#info">Horarios</a>
+        <a href="#info">Contacto</a>
+      </nav>
+      <a href="#" id="nav-cta" class="btn btn--outline">Ingresar</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img id="hero-img" class="hero__img" src="" alt="" aria-hidden="true" />
+    <div class="container hero__content">
+      <p class="hero__eyebrow">Bienvenido</p>
+      <h1 class="hero__title" id="hero-nombre"></h1>
+      <p class="hero__sub" id="hero-slogan"></p>
+      <p class="hero__desc" id="hero-desc"></p>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <h2 class="section__title">Lo que te ofrecemos!</h2>
+      <div class="grid-servicios" id="grid-servicios"></div>
+      <div class="servicios-cta">
+        <p>Para ver los talleres ofrecidos <a id="cursos-link" href="#" target="_blank" rel="noopener">entra acá</a></p>
+        <a id="inscripcion-btn" href="#" target="_blank" rel="noopener" class="btn btn--primary">Para inscribirte en los talleres ingresá</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO: horarios + contacto -->
+  <section class="section section--dark" id="info">
+    <div class="container info-grid">
+
+      <div class="info-block">
+        <h2 class="section__title section__title--light">Horarios</h2>
+        <ul class="horarios-list" id="horarios-list"></ul>
+      </div>
+
+      <div class="info-block">
+        <h2 class="section__title section__title--light">Contacto</h2>
+        <ul class="contacto-list" id="contacto-list"></ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span id="footer-nombre"></span>
+      <span class="footer__sep">·</span>
+      <a href="#" id="footer-ig" target="_blank" rel="noopener">Instagram</a>
+      <span class="footer__sep">·</span>
+      <a href="#" id="footer-cta">Reservar turno</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
