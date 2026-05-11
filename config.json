@@ -1,8 +1,12 @@
 {
   "nombre": "Guarida",
   "logo": "imagenes/logo.png",
-  "paleta": "Azul",
+  "paleta": "Menta",
   "heroImg": "imagenes/hero.jpg",
+  "heroImgs": ["imagenes/a1.png", "imagenes/a2.png", "imagenes/a3.png", "imagenes/a4.png"],
+  "heroImgWidth": 749,
+  "heroImgHeight": 241,
+  "heroImgInterval": 7000,
   "tipografia": "Elegante",
 
   "tipografias": {
@@ -92,7 +96,8 @@
     }
   },
 
-  "slogan": "Casa de libros y talleres culturales",
+  "slogan": "Casa de libros y talleres culturales.",
+  "callout": "Click en Ingresar para ver \n los talleres e inscribirte!",
   "descripcion": "Te ofrecemos talleres anuales, ciclos mensuales y actividades únicas.",
   "appUrl": "https://guarida.onrender.com/",
   "cursosUrl": "https://guarida.onrender.com/Curso/Disponibles",
