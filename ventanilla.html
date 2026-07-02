@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ventanilla abierta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&family=Caveat:wght@500;700&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Pinyon+Script&family=Cinzel+Decorative:wght@700&family=Abril+Fatface&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="imagenes/logo4.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img id="nav-logo" src="" alt="Logo" />
+        <span id="nav-nombre"></span>
+      </a>
+      <nav class="nav__links">
+        <a href="index.html#servicios">Propuesta Cultural</a>
+        <a href="index.html#autores">Autores que nos visitaron</a>
+        <a href="index.html#info">Contacto</a>
+      </nav>
+      <a href="#" id="nav-cta" class="btn btn--outline" aria-label="Ingresar">
+        <svg class="nav-cta__user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+        </svg>
+        <svg class="nav-cta__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+          <path d="M10 17l5-5-5-5"/>
+          <path d="M15 12H3"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- VENTANILLA -->
+  <section class="section" id="ventanilla">
+    <div class="container ventanilla-intro">
+      <h1 class="section__title section__title--manuscrita">Ventanilla abierta</h1>
+      <p class="ventanilla-desc">¿Tenés una idea para un nuevo taller? Contanos tu propuesta y nos pondremos en contacto.</p>
+
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/mnjkozdy" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="mensaje" placeholder="Contanos tu propuesta de taller" rows="5" maxlength="500" required></textarea>
+        <button type="submit" class="btn btn--primary">Enviar propuesta</button>
+        <a href="index.html" class="btn btn--outline ventanilla-volver">Volver al inicio</a>
+        <p id="contact-form-status" class="contact-form__status"></p>
+      </form>
+    </div>
+  </section>
+
+  <a id="whatsapp-btn" class="whatsapp-btn" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="28" height="28"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.832.74 5.625 2.146 8.082L0 32l8.186-2.104A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.784-1.854l-.486-.29-5.04 1.295 1.34-4.902-.318-.504A13.267 13.267 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.878c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.63-.199-.896.199-.265.398-1.028 1.294-1.26 1.56-.232.265-.464.298-.862.1-.398-.2-1.681-.62-3.202-1.977-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.175-.811.18-.178.398-.464.597-.696.2-.232.265-.398.398-.663.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.854 1.626 4.119c.199.265 2.808 4.287 6.803 6.014.951.41 1.693.655 2.271.839.954.304 1.823.261 2.51.158.765-.114 2.354-.962 2.686-1.891.332-.93.332-1.727.232-1.891-.099-.166-.365-.265-.763-.464z"/></svg>
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>

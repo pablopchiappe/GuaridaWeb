@@ -22,28 +22,39 @@
         <span id="nav-nombre"></span>
       </div>
       <nav class="nav__links">
-        <a href="#servicios">Lo que te ofrecemos!</a>
-        <a href="#info">Horarios</a>
-        <a href="#info">Contacto</a>
+        <a href="#servicios">Propuesta Cultural</a>
+        <a href="#autores">Autores que nos visitaron</a>
+        <a href="#footer">Horarios</a>
+        <a href="#footer">Contacto</a>
       </nav>
-      <a href="#" id="nav-cta" class="btn btn--outline">Ingresar</a>
+      <a href="#" id="nav-cta" class="btn btn--outline" aria-label="Ingresar">
+        <svg class="nav-cta__user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+        </svg>
+        <svg class="nav-cta__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+          <path d="M10 17l5-5-5-5"/>
+          <path d="M15 12H3"/>
+        </svg>
+      </a>
     </div>
   </header>
 
+  <!-- SCROLL SPY -->
+  <nav class="scrollspy" id="scrollspy" aria-label="Progreso de navegación">
+    <a href="#inicio" class="scrollspy__dot" data-target="inicio" aria-label="Inicio"></a>
+    <a href="#servicios" class="scrollspy__dot" data-target="servicios" aria-label="Propuesta cultural"></a>
+    <a href="#autores" class="scrollspy__dot" data-target="autores" aria-label="Autores"></a>
+    <a href="#footer" class="scrollspy__dot" data-target="footer" aria-label="Contacto"></a>
+  </nav>
+
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="hero__carousel" id="hero-carousel">
       <div class="hero__carousel-imgs" id="hero-carousel-imgs"></div>
       <div class="hero__carousel-dots" id="hero-carousel-dots"></div>
     </div>
-    <div class="hero__callout">
-      <p id="hero-callout"></p>
-      <svg class="hero__callout-arrow--static" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 36" fill="none">
-        <path d="M4 28 C20 26 45 12 62 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path d="M62 6 L50 8 M62 6 L58 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <svg id="callout-arrow-svg" class="callout-arrow-svg" xmlns="http://www.w3.org/2000/svg"></svg>
     <div class="container hero__content">
       <p class="hero__eyebrow">Bienvenid@s!</p>
       <h1 class="hero__title" id="hero-nombre"></h1>
@@ -54,41 +65,47 @@
 
   <!-- SERVICIOS -->
   <section class="section" id="servicios">
-    <div class="container">
-      <h2 class="section__title section__title--manuscrita">Lo que te ofrecemos!</h2>
+    <div class="container container--wide">
+      <h2 class="section__title section__title--manuscrita">Propuesta cultural</h2>
       <div class="grid-servicios" id="grid-servicios"></div>
-      <div class="servicios-cta">
-        <p>Para ver los talleres ofrecidos <a id="cursos-link" href="#" target="_blank" rel="noopener">entra acá</a></p>
-        <a id="inscripcion-btn" href="#" target="_blank" rel="noopener" class="btn btn--primary">Para inscribirte en los talleres ingresá</a>
-      </div>
     </div>
   </section>
 
-  <!-- INFO: horarios + contacto -->
-  <section class="section section--dark" id="info">
-    <div class="container info-grid">
-
-      <div class="info-block">
-        <h2 class="section__title section__title--light">Horarios</h2>
-        <ul class="horarios-list" id="horarios-list"></ul>
-      </div>
-
-      <div class="info-block">
-        <h2 class="section__title section__title--light">Contacto</h2>
-        <ul class="contacto-list" id="contacto-list"></ul>
-      </div>
-
+  <!-- AUTORES -->
+  <section class="section" id="autores">
+    <div class="container">
+      <h2 class="section__title section__title--light">Autores que nos visitaron</h2>
     </div>
+    <div class="grid-autores" id="grid-autores"></div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span id="footer-nombre"></span>
-      <span class="footer__sep">·</span>
-      <a href="#" id="footer-ig" target="_blank" rel="noopener">Instagram</a>
-      <span class="footer__sep">·</span>
-      <a href="#" id="footer-cta">Reservar turno</a>
+  <footer class="footer" id="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <span class="footer-col__title footer-col__title--rule">Horarios</span>
+        <ul class="horarios-list" id="footer-horarios"></ul>
+      </div>
+
+      <div class="footer-col-group">
+        <div class="footer-col">
+          <a href="#inicio">Inicio</a>
+          <a id="footer-whatsapp" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+          <a id="footer-telefono" href="#">Comunicate por teléfono</a>
+        </div>
+
+        <div class="footer-col">
+          <a href="#servicios" class="footer-col__title">Propuesta cultural</a>
+          <div id="footer-servicios"></div>
+          <a href="#autores">Autores que nos visitaron</a>
+        </div>
+
+        <div class="footer-col">
+          <a id="footer-ig" href="#" target="_blank" rel="noopener">Instagram</a>
+          <a id="footer-whatsapp2" href="#" target="_blank" rel="noopener">Whatsapp</a>
+          <a id="footer-ubicacion" href="#" target="_blank" rel="noopener">Ubicación</a>
+        </div>
+      </div>
     </div>
   </footer>
 

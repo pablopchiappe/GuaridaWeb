@@ -85,9 +85,9 @@
       "accent": "#B84040", "accent-dark": "#902828", "border": "#F0D8D8"
     },
     "Menta": {
-      "bg": "#F4FAFA", "bg-dark": "#0A1818", "bg-card": "#FFFFFF",
+      "bg": "#3493c3", "bg-dark": "#0A1818", "bg-card": "#FFFFFF",
       "text": "#0A1818", "text-muted": "#4A7070",
-      "accent": "#3A9E9E", "accent-dark": "#257E7E", "border": "#CCE8E8"
+      "accent": "#0B3D5C", "accent-dark": "#082C42", "border": "#CCE8E8"
     },
     "Terracota": {
       "bg": "#FAF6F3", "bg-dark": "#1A0F0A", "bg-card": "#FFFFFF",
@@ -100,7 +100,9 @@
   "callout": "Click en Ingresar para ver \n los talleres e inscribirte!",
   "descripcion": "Te ofrecemos talleres anuales, ciclos mensuales y actividades únicas.",
   "appUrl": "https://guarida.onrender.com/",
-  "cursosUrl": "https://guarida.onrender.com/Curso/Disponibles",
+  "talleresUrl": "https://guarida.onrender.com/Curso/Disponibles",
+  "librosUrl": "https://guarida.onrender.com/",
+  "ventanillaUrl": "ventanilla.html",
 
   "contacto": {
     "telefono": "091332301",
@@ -120,22 +122,46 @@
     {
       "icono": "imagenes/1.png",
       "nombre": "Talleres anuales",
-      "descripcion": "Talleres de escritura, ilustración, poesía y narrativa para todas las edades."
+      "descripcion": "Talleres de escritura, ilustración, poesía y narrativa para todas las edades.",
+      "enlace": "talleresUrl",
+      "ctaTexto": "Ver e inscribirse"
     },
     {
       "icono": "imagenes/2.png",
-      "nombre": "Actividades únicas",
+      "nombre": "Eventos",
       "descripcion": "Encuentros con autores, lecturas públicas y eventos culturales exclusivos."
     },
     {
       "icono": "imagenes/3.png",
-      "nombre": "Venta de libros",
-      "descripcion": "Amplia selección de libros de autores locales e internacionales, con un enfoque en literatura contemporánea y clásica."
+      "nombre": "Libros recomendados",
+      "descripcion": "Cada semana elegimos nuevos títulos para descubrir. Volvé seguido para ver las últimas recomendaciones.",
+      "enlace": "librosUrl",
+      "ctaTexto": "Ver recomendados"
     },
     {
       "icono": "imagenes/4.png",
-      "nombre": "Noche de las Librerías",
-      "descripcion": "Participamos en la Noche de las Librerías, ofreciendo descuentos especiales, actividades y eventos para celebrar la literatura y la cultura local."
+      "nombre": "Colectivos",
+      "descripcion": "Espacio abierto a colectivos y grupos culturales locales que buscan compartir sus proyectos, encuentros y actividades."
+    },
+    {
+      "icono": "imagenes/1.png",
+      "nombre": "Ventanilla abierta",
+      "descripcion": "¿Tenés una idea para un nuevo taller? Desde acá podés enviarnos tu propuesta.",
+      "enlace": "ventanillaUrl",
+      "ctaTexto": "Enviar propuesta"
+    }
+  ],
+
+  "autores": [
+    {
+      "foto": "imagenes/marielapena.png",
+      "nombre": "Mariela Peña",
+      "descripcion": "Mariela Peña es una destacada escritora y correctora argentina radicada en Uruguay, reconocida por sus exitosas novelas de literatura juvenil que exploran la identidad, el bullying y la exposición digital. Además, coordina talleres de escritura creativa y gestiona la librería independiente Guarida."
+    },
+    {
+      "foto": "imagenes/alicia.png",
+      "nombre": "Alicia Escardó",
+      "descripcion": "Alicia Escardó es una destacada escritora, gestora cultural y guionista uruguaya, creadora del festival Semana Negra en Uruguay. Su variada producción literaria abarca desde la novela negra y de suspenso hasta la narrativa infantil y juvenil premiada."      
     }
   ]
 }

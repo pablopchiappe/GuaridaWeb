@@ -6,53 +6,54 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-function positionCallout() {
-  const callout = document.querySelector('.hero__callout');
-  const btn     = document.getElementById('nav-cta');
-  const svg     = document.getElementById('callout-arrow-svg');
-  if (!callout || !btn || !svg) return;
+const scrollspyDots = document.querySelectorAll('.scrollspy__dot');
+if (scrollspyDots.length) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const dot = document.querySelector(`.scrollspy__dot[data-target="${entry.target.id}"]`);
+      if (!dot) return;
+      scrollspyDots.forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+    });
+  }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
 
-  const br  = btn.getBoundingClientRect();
-  const hr  = callout.parentElement.getBoundingClientRect();
-
-  // Posiciono relativo al hero (position: absolute)
-  const gap = 10;
-  callout.style.top  = (br.bottom + gap + 12 - hr.top) + 'px';
-  callout.style.left = (br.left + br.width / 2 - callout.offsetWidth / 2 - 120 - hr.left) + 'px';
-
-  const cr = callout.getBoundingClientRect();
-
-  // Flecha corta: desde el borde izquierdo del callout hasta el centro-bottom del botón
-  const x1 = cr.right;
-  const y1 = cr.top + cr.height / 2;
-  const x2 = br.left + br.width / 2;
-  const y2 = br.bottom + 6;
-
-  const angle = Math.atan2(y2 - y1, x2 - x1);
-  const len = 8;
-  const ah1x = y1 - len * Math.cos(angle - 0.4);
-  const ah1y = y1 - len * Math.sin(angle - 0.4);
-  const ah2x = y1 - len * Math.cos(angle + 0.4);
-  const ah2y = y1 - len * Math.sin(angle + 0.4);
-
-  // Flecha apunta HACIA ARRIBA al botón
-  const ax = x1, ay = y1;
-  const bx = x2, by = y2;
-  const aAngle = Math.atan2(by - ay, bx - ax);
-  const aLen = 8;
-  const a1x = bx - aLen * Math.cos(aAngle - 0.4);
-  const a1y = by - aLen * Math.sin(aAngle - 0.4);
-  const a2x = bx - aLen * Math.cos(aAngle + 0.4);
-  const a2y = by - aLen * Math.sin(aAngle + 0.4);
-
-  svg.innerHTML = `
-    <path d="M${ax},${ay} Q${ax},${ay - 10} ${bx},${by}"
-          stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round" opacity=".9"/>
-    <path d="M${a1x},${a1y} L${bx},${by} L${a2x},${a2y}"
-          stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>`;
+  scrollspyDots.forEach(dot => {
+    const target = document.getElementById(dot.dataset.target);
+    if (target) observer.observe(target);
+  });
 }
 
-window.addEventListener('resize', () => { if (window.innerWidth > 480) positionCallout(); });
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const status = document.getElementById('contact-form-status');
+    const btn = contactForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        status.textContent = '¡Gracias! Tu mensaje fue enviado.';
+        status.classList.add('ok');
+        contactForm.reset();
+        alert('¡Tu propuesta fue enviada correctamente! Presioná Aceptar para volver al inicio.');
+        location.href = 'index.html';
+      } else {
+        status.textContent = 'Hubo un error, intentá de nuevo.';
+        status.classList.remove('ok');
+      }
+    } catch {
+      status.textContent = 'Hubo un error, intentá de nuevo.';
+      status.classList.remove('ok');
+    }
+    btn.disabled = false;
+  });
+}
 
 fetch('config.json')
   .then(r => r.json())
@@ -105,6 +106,8 @@ fetch('config.json')
           dots[current].classList.add('active');
         }
 
+        imgsContainer.addEventListener('click', () => goTo(current + 1));
+
         setInterval(() => goTo(current + 1), interval);
       }
     }
@@ -116,8 +119,10 @@ fetch('config.json')
       Object.entries(paleta).forEach(([k, v]) => root.setProperty(`--${k}`, v));
     }
 
-    document.getElementById('page-title').textContent = cfg.nombre;
-    document.querySelector('meta[name="description"]').content = cfg.descripcion ?? '';
+    const pageTitle = document.getElementById('page-title');
+    if (pageTitle) pageTitle.textContent = cfg.nombre;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.content = cfg.descripcion ?? '';
 
     const navLogo = document.getElementById('nav-logo');
     if (navLogo && cfg.logo) { navLogo.src = cfg.logo; navLogo.alt = cfg.nombre; }
@@ -125,38 +130,64 @@ fetch('config.json')
 
     set('nav-nombre',   cfg.nombre);
     set('hero-nombre',  cfg.nombre);
-    if (cfg.callout) {
-      const el = document.getElementById('hero-callout');
-      if (el) el.innerHTML = cfg.callout.replace(/\n/g, '<br>');
-    }
-    if (window.innerWidth > 480) setTimeout(positionCallout, 200);
     set('hero-slogan',  cfg.slogan);
     set('hero-desc',    cfg.descripcion ?? '');
-    set('footer-nombre', cfg.nombre);
 
-    href('nav-cta',      cfg.appUrl);
-    href('inscripcion-btn', cfg.appUrl);
-    href('cursos-link',  cfg.cursosUrl);
-    href('footer-cta', cfg.appUrl);
+    href('nav-cta', cfg.appUrl);
 
-    const ig = cfg.contacto?.instagram;
-    if (ig) href('footer-ig', `https://instagram.com/${ig}`);
+    const igUrl = url => url?.startsWith('http') ? url : `https://instagram.com/${url}`;
 
     // Servicios
     const grid = document.getElementById('grid-servicios');
     if (grid && cfg.servicios) {
-      grid.innerHTML = cfg.servicios.map(s => `
-        <div class="servicio-card">
+      grid.innerHTML = cfg.servicios.map(s => {
+        const tag = s.enlace ? 'a' : 'div';
+        const hrefAttr = s.enlace ? `href="${cfg[s.enlace] ?? '#'}"` : '';
+        const cta = s.enlace ? `<span class="servicio-card__cta">${s.ctaTexto ?? 'Ver más'} →</span>` : '';
+        return `
+        <${tag} class="servicio-card" ${hrefAttr}>
           <div class="servicio-card__icono">
             <img src="${s.icono}" alt="${s.nombre}" />
           </div>
           <h3 class="servicio-card__nombre">${s.nombre}</h3>
           <p class="servicio-card__desc">${s.descripcion}</p>
+          ${cta}
+        </${tag}>`;
+      }).join('');
+    }
+
+    // Footer: sitemap de servicios
+    const footerServicios = document.getElementById('footer-servicios');
+    if (footerServicios && cfg.servicios) {
+      footerServicios.innerHTML = cfg.servicios.map(s => {
+        const dest = s.enlace ? (cfg[s.enlace] ?? '#servicios') : '#servicios';
+        return `<a href="${dest}">${s.nombre}</a>`;
+      }).join('');
+    }
+
+    // Autores
+    const gridAutores = document.getElementById('grid-autores');
+    if (gridAutores && cfg.autores) {
+      gridAutores.innerHTML = cfg.autores.map(a => `
+        <div class="autor-card">
+          <div class="autor-card__foto">
+            <img src="${a.foto}" alt="${a.nombre}" />
+          </div>
+          <div class="autor-card__overlay">
+            <h3 class="autor-card__nombre">${a.nombre}</h3>
+            <div class="autor-card__desc-wrap">
+              <p class="autor-card__desc">${a.descripcion}</p>
+            </div>
+          </div>
         </div>`).join('');
+
+      gridAutores.querySelectorAll('.autor-card').forEach(card => {
+        card.addEventListener('click', () => card.classList.toggle('is-expanded'));
+      });
     }
 
     // Horarios
-    const hl = document.getElementById('horarios-list');
+    const hl = document.getElementById('footer-horarios');
     if (hl && cfg.horarios) {
       hl.innerHTML = cfg.horarios.map(h => `
         <li>
@@ -165,37 +196,22 @@ fetch('config.json')
         </li>`).join('');
     }
 
-    // Contacto
-    const cl = document.getElementById('contacto-list');
-    if (cl && cfg.contacto) {
+    // Footer: acciones rápidas + redes
+    if (cfg.contacto) {
       const c = cfg.contacto;
-      const items = [];
-
-      if (c.telefono)
-        items.push(['📞', `<a href="tel:${c.telefono.replace(/\s/g,'')}">${c.telefono}</a>`]);
-
+      if (c.telefono) href('footer-telefono', `tel:${c.telefono.replace(/\s/g,'')}`);
       if (c.whatsapp) {
-        items.push(['💬', `<a href="https://wa.me/${c.whatsapp}" target="_blank" rel="noopener">WhatsApp</a>`]);
+        const waLink = `https://wa.me/${c.whatsapp}?text=${encodeURIComponent('Hola Guarida! Tengo una consulta')}`;
+        href('footer-whatsapp',  waLink);
+        href('footer-whatsapp2', waLink);
         const waBtn = document.getElementById('whatsapp-btn');
-        if (waBtn) waBtn.href = `https://wa.me/${c.whatsapp}?text=${encodeURIComponent('Hola Guarida! Tengo una consulta')}`;
+        if (waBtn) waBtn.href = waLink;
       }
-
-      if (c.email)
-        items.push(['✉️', `<a href="mailto:${c.email}">${c.email}</a>`]);
-
-      if (c.instagram)
-        items.push(['📷', `<a href="https://instagram.com/${c.instagram}" target="_blank" rel="noopener">@${c.instagram}</a>`]);
-
+      if (c.instagram) href('footer-ig', igUrl(c.instagram));
       if (c.direccion) {
         const mapHref = c.mapsUrl ?? `https://maps.google.com/?q=${encodeURIComponent(c.direccion)}`;
-        items.push(['📍', `<a href="${mapHref}" target="_blank" rel="noopener">${c.direccion}</a>`]);
+        href('footer-ubicacion', mapHref);
       }
-
-      cl.innerHTML = items.map(([icon, content]) => `
-        <li>
-          <span class="icon">${icon}</span>
-          <span>${content}</span>
-        </li>`).join('');
     }
   })
   .catch(err => console.error('Error cargando config.json:', err));
